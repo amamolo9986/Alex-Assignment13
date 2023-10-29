@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.coderscampus.assignment13.domain.Address;
 import com.coderscampus.assignment13.domain.User;
+import com.coderscampus.assignment13.service.AddressService;
 import com.coderscampus.assignment13.service.UserService;
 
 @Controller
@@ -18,6 +20,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private AddressService addressService;
 	
 	@GetMapping("/register")
 	public String getCreateUser (ModelMap model) {
@@ -49,6 +53,8 @@ public class UserController {
 	@GetMapping("/users/{userId}")
 	public String getOneUser (ModelMap model, @PathVariable Long userId) {
 		User user = userService.findById(userId);
+		Address address = addressService.findById(userId);
+		model.put("address", address);
 		model.put("users", Arrays.asList(user));
 		model.put("user", user);
 		return "users";
