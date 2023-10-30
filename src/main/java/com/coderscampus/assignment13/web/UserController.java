@@ -25,9 +25,7 @@ public class UserController {
 	
 	@GetMapping("/register")
 	public String getCreateUser (ModelMap model) {
-		
 		model.put("user", new User());
-		
 		return "register";
 	}
 	
@@ -63,7 +61,7 @@ public class UserController {
 	@PostMapping("/users/{userId}")
 	public String postOneUser (User user) {
 		userService.saveUser(user);
-		return "redirect:/users/"+user.getUserId();
+		return "redirect:/users/" + user.getUserId();
 	}
 	
 	@PostMapping("/users/{userId}/delete")
