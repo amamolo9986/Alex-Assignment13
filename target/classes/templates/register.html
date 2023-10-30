@@ -19,6 +19,9 @@
 			<div>
 				<input type="submit" value="Create Account" />
 			</div>
+			<div>
+				<a href="/users" th:if="${user != null}">Users</a>
+			</div>
 		</form>
 	</body>
 </html>
