@@ -7,8 +7,8 @@
 
 <body>
 	<h1>Users</h1>
-	
-	<div th:if="${#lists.size(users) == 1}">
+
+	<div th:if="${#lists.size(users) == 1} and ${address != null}">
 		<form action="" method="post">
 			<div>
 				Username: <input type="text" th:field="${user.username}" />
@@ -47,8 +47,23 @@
 			<input type="submit" value="Delete User Account" />
 		</form>
 	</div>
+	<!-- The code above is the single user view with address (/users/{userId} endpoint) -->
 
+	<div th:if="${#lists.size(users) == 1} and ${address == null}">
+		<div th:each="user : ${users}">
+			<a th:href="@{/users/{userId}(userId=${user.userId})}" th:text="${user.userId}"> </a><br />
+			<span th:text="${user.username}"></span><br />
+			<span th:text="${user.name}"></span><br />
+			<span th:text="${user.password}"></span>
 
+			<div th:each="account : ${user.accounts}">
+				<a th:text="${account.accountName}"
+					th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}"></a>
+			</div>
+			<hr />
+		</div>
+	</div>
+	<!-- The code above is the single user view with no address (/users endpoint with only one user)-->
 
 	<div th:unless="${#lists.size(users) == 1}" th:each="user : ${users}">
 		<span th:inline="text">
@@ -58,13 +73,15 @@
 		<span th:text="${user.name}"></span><br />
 		<span th:text="${user.password}"></span>
 		<div th:each="account : ${user.accounts}">
-			<span th:text="${account.accountName}"></span>
+			<a th:text="${account.accountName}"
+				th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}"></a>
 		</div>
 		<hr />
 	</div>
 	<div>
 		<a href="/register" th:if="${users != null}">Register</a>
 	</div>
+	<!-- THe code above is the multi user view (/users endpoint with multiple users) -->
 </body>
 
 </html>
