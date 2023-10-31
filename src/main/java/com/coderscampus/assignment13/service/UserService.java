@@ -66,6 +66,7 @@ public class UserService {
 
 			user.getAccounts().add(checking);
 			user.getAccounts().add(savings);
+			
 			accountRepo.save(checking);
 			accountRepo.save(savings);
 		}

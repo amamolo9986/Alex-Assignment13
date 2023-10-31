@@ -40,15 +40,30 @@
 			</div>
 			<div>
 				<input type="submit" value="Update User Account" />
-				<a href="/users" th:if="${user != null}">Back</a>
 			</div>
 		</form>
 		<form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="post">
 			<input type="submit" value="Delete User Account" />
 		</form>
+		<hr />
+		<h3>Accounts</h3>
+		<div th:each="account : ${user.accounts}">
+			<a th:text="${account.accountName}" th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, 
+						 accountId=${account.accountId})}"></a>
+		</div><br />
+		<div>
+			<input type="submit" value="Create New Bank Account" />
+		</div><br/>
+		<div>
+			<a href="/users" th:if="${user != null}">Back</a><br />
+		</div>
 	</div>
-	<!-- The code above is the single user view with address (/users/{userId} endpoint) -->
+	<div>
+		<a href="/register" th:if="${users != null}">Register</a><br />
+	</div>
 
+	<!-- The code above is the single user view with address (/users/{userId} endpoint) -->
+	<br />
 	<div th:if="${#lists.size(users) == 1} and ${address == null}">
 		<div th:each="user : ${users}">
 			<a th:href="@{/users/{userId}(userId=${user.userId})}" th:text="${user.userId}"> </a><br />
@@ -57,8 +72,8 @@
 			<span th:text="${user.password}"></span>
 
 			<div th:each="account : ${user.accounts}">
-				<a th:text="${account.accountName}"
-					th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}"></a>
+				<a th:text="${account.accountName}" th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, 
+							 accountId=${account.accountId})}"></a>
 			</div>
 			<hr />
 		</div>
@@ -73,15 +88,13 @@
 		<span th:text="${user.name}"></span><br />
 		<span th:text="${user.password}"></span>
 		<div th:each="account : ${user.accounts}">
-			<a th:text="${account.accountName}"
-				th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}"></a>
+			<a th:text="${account.accountName}" th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, 
+						 accountId=${account.accountId})}"></a>
 		</div>
 		<hr />
 	</div>
-	<div>
-		<a href="/register" th:if="${users != null}">Register</a>
-	</div>
-	<!-- THe code above is the multi user view (/users endpoint with multiple users) -->
-</body>
+	<!-- The code above is the multi user view (/users endpoint with multiple users) -->
 
+
+</body>
 </html>

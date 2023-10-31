@@ -51,6 +51,7 @@ public class UserController {
 	public String getOneUser(ModelMap model, @PathVariable Long userId) {
 		User user = userService.findById(userId);
 		Address address = addressService.findById(userId);
+		
 		model.put("address", address);
 		model.put("users", Arrays.asList(user));
 		model.put("user", user);
@@ -69,4 +70,10 @@ public class UserController {
 		userService.delete(userId);
 		return "redirect:/users";
 	}
+
+//	@GetMapping("/users/{userId}/accounts/{accountId}")
+//	public String getOneAccount(ModelMap model, @PathVariable Long accountId) {
+//		
+//		return "account";
+//	}
 }
