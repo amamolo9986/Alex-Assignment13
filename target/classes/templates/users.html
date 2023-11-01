@@ -7,6 +7,9 @@
 
 <body>
 	<h1>Users</h1>
+	<div>
+		<a href="/register" th:if="${users != null}">Register</a>
+	</div>
 
 	<div th:if="${#lists.size(users) == 1} and ${address != null}">
 		<form action="" method="post">
@@ -55,11 +58,8 @@
 			<input type="submit" value="Create New Bank Account" />
 		</div><br/>
 		<div>
-			<a href="/users" th:if="${user != null}">Back</a><br />
+			<a href="/users" th:if="${user != null}">Back</a>
 		</div>
-	</div>
-	<div>
-		<a href="/register" th:if="${users != null}">Register</a><br />
 	</div>
 
 	<!-- The code above is the single user view with address (/users/{userId} endpoint) -->
