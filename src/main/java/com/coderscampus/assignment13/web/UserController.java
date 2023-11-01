@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.coderscampus.assignment13.domain.Account;
 import com.coderscampus.assignment13.domain.Address;
 import com.coderscampus.assignment13.domain.User;
 import com.coderscampus.assignment13.service.AddressService;
@@ -58,9 +59,10 @@ public class UserController {
 	}
 
 	@PostMapping("/users/{userId}")
-	public String postOneUser(User user, Address address) {
+	public String postOneUser(User user, Address address, Account account) {
 		userService.saveUser(user);
 		userService.saveAddressToUser(user, address);
+		//userService.updateUserAndAccount(user, account);
 		return "redirect:/users/" + user.getUserId();
 	}
 

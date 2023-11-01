@@ -54,9 +54,9 @@
 			<a th:text="${account.accountName}" th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, 
 						 accountId=${account.accountId})}"></a>
 		</div><br />
-		<div>
+		<form th:action="@{/users/{userId}/accounts/(userId=${user.userId})}" method="post">
 			<input type="submit" value="Create New Bank Account" />
-		</div><br/>
+		</form><br/>
 		<div>
 			<a href="/users" th:if="${user != null}">Back</a>
 		</div>

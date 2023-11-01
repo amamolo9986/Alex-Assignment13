@@ -8,18 +8,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.coderscampus.assignment13.domain.Account;
+import com.coderscampus.assignment13.domain.User;
 import com.coderscampus.assignment13.service.AccountService;
+import com.coderscampus.assignment13.service.UserService;
 
 @Controller
 public class AccountController {
 	
 	@Autowired
 	private AccountService accountService;
+	@Autowired
+	private UserService userService;
 	
-	@GetMapping("/users/{userId}/accounts/")
-	public String createAccount(Long accuntId) {
-		
-		return "account";
+	@PostMapping("/users/{userId}/accounts")
+	public String postAccount(@PathVariable Long userId, User user) {
+		Long accountId = accountService.addAccount(user);
+		userService.saveUser(user);
+		return "redirect:/users/" + userId + "/accounts/" + accountId;
 	}
 
 	@GetMapping("/users/{userId}/accounts/{accountId}")
