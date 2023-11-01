@@ -1,5 +1,6 @@
 package com.coderscampus.assignment13.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import com.coderscampus.assignment13.repository.AccountRepository;
 
 @Service
 public class AccountService {
-	
+
 	@Autowired
 	private AccountRepository accountRepo;
 
@@ -22,17 +23,21 @@ public class AccountService {
 
 	public Account saveAccount(Account account) {
 		return accountRepo.save(account);
-		
+
 	}
 
-	public Long addAccount(User user) {
+	public Account addAccount(User user) {
 		Account account = new Account();
 		Integer accountNumber = user.getAccounts().size() + 1;
 		account.setAccountName("Account # " + accountNumber);
-		account.getUsers().add(user);
+
+		// get users
+		List<User> users = account.getUsers();
 		user.getAccounts().add(account);
-		accountRepo.save(account);
-		return account.getAccountId();
+		users.add(user);
+		account.setUsers(users);
+
+		return account;
 	}
 
 }

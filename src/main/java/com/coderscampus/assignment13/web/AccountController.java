@@ -16,17 +16,32 @@ import com.coderscampus.assignment13.service.UserService;
 
 @Controller
 public class AccountController {
-	
+
 	@Autowired
 	private AccountService accountService;
 	@Autowired
 	private UserService userService;
-	
+
+
+	@GetMapping("/users/{userId}/accounts")
+	public String getAccount(@PathVariable Long userId, ModelMap model) {
+		User user = userService.findById(userId);
+		Account account = accountService.addAccount(user);
+
+		model.put("account", account);
+		return "account";
+	}
+
 	@PostMapping("/users/{userId}/accounts")
-	public String postAccount(@PathVariable Long userId, User user) {
-		Long accountId = accountService.addAccount(user);
+	public String postAccount(@PathVariable Long userId, Account account) {
+		User user = userService.findById(userId);
+		Account savedAccount = accountService.saveAccount(account);
+
+		List<Account> accounts = user.getAccounts();
+		accounts.add(savedAccount);
+		user.setAccounts(accounts);
 		userService.saveUser(user);
-		return "redirect:/users/" + userId + "/accounts/" + accountId;
+		return "redirect:/users/" + userId + "/accounts";
 	}
 
 	@GetMapping("/users/{userId}/accounts/{accountId}")
@@ -35,16 +50,19 @@ public class AccountController {
 		model.put("account", account);
 		return "account";
 	}
-	
+
 	@PostMapping("/users/{userId}/accounts/{accountId}")
 	public String saveAccount(@PathVariable Long userId, Account account) {
+		// Updates accounts in user
 		User user = userService.findById(userId);
-		List<Account> accounts = user.getAccounts();
-		accounts.add(account);
-		userService.saveUser(user);
-		accountService.saveAccount(account);
-		System.out.println(account);
-	
+		// List<Account> accounts = user.getAccounts();
+		// accounts.add(account);
+
+		userService.updateUserAndAccount(user, account);
+		// userService.saveUser(user);
+		// accountService.saveAccount(account);
+		// System.out.println(account);
+
 		return "redirect:/users/{userId}/accounts/{accountId}";
 	}
 
