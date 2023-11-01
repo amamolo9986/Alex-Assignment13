@@ -53,16 +53,9 @@ public class AccountController {
 
 	@PostMapping("/users/{userId}/accounts/{accountId}")
 	public String saveAccount(@PathVariable Long userId, Account account) {
-		// Updates accounts in user
 		User user = userService.findById(userId);
-		// List<Account> accounts = user.getAccounts();
-		// accounts.add(account);
-
-		userService.updateUserAndAccount(user, account);
-		// userService.saveUser(user);
-		// accountService.saveAccount(account);
-		// System.out.println(account);
-
+		 userService.saveUser(user);
+		 accountService.saveAccount(account);
 		return "redirect:/users/{userId}/accounts/{accountId}";
 	}
 

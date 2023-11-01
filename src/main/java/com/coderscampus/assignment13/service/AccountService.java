@@ -30,8 +30,6 @@ public class AccountService {
 		Account account = new Account();
 		Integer accountNumber = user.getAccounts().size() + 1;
 		account.setAccountName("Account # " + accountNumber);
-
-		// get users
 		List<User> users = account.getUsers();
 		user.getAccounts().add(account);
 		users.add(user);
