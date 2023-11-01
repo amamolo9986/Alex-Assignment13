@@ -44,11 +44,9 @@ public class UserService {
 	}
 
 //	public User updateUserAndAccount(User user, Account account) {
-//		if (user != null) {
-//			user.getAccounts().add(account);
-//			account.getUsers().add(user);
-//			accountRepo.save(account);
-//		}
+//		user.getAccounts().add(account);
+//		account.getUsers().add(user);
+//		accountRepo.save(account);
 //		return userRepo.save(user);
 //	}
 
