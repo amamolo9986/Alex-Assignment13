@@ -1,6 +1,5 @@
 package com.coderscampus.assignment13.service;
 
-
 import java.util.Optional;
 import java.util.Set;
 
@@ -24,7 +23,6 @@ public class UserService {
 	@Autowired
 	private AccountRepository accountRepo;
 
-
 	public Set<User> findAll() {
 		return userRepo.findAllUsersWithAccountsAndAddresses();
 	}
@@ -44,11 +42,13 @@ public class UserService {
 		addressRepo.save(address);
 		return userRepo.save(user);
 	}
-	
+
 //	public User updateUserAndAccount(User user, Account account) {
-//		user.getAccounts().add(account);
-//		account.getUsers().add(user);
-//		accountRepo.save(account);
+//		if (user != null) {
+//			user.getAccounts().add(account);
+//			account.getUsers().add(user);
+//			accountRepo.save(account);
+//		}
 //		return userRepo.save(user);
 //	}
 
