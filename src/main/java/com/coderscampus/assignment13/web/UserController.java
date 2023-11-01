@@ -62,7 +62,7 @@ public class UserController {
 	public String postOneUser(User user, Address address, Account account) {
 		userService.saveUser(user);
 		userService.saveAddressToUser(user, address);
-		//userService.updateUserAndAccount(user, account);
+		userService.updateUserAndAccount(user, account);
 		return "redirect:/users/" + user.getUserId();
 	}
 

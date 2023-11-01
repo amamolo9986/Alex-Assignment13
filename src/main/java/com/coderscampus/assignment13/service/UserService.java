@@ -43,12 +43,12 @@ public class UserService {
 		return userRepo.save(user);
 	}
 
-//	public User updateUserAndAccount(User user, Account account) {
-//		user.getAccounts().add(account);
-//		account.getUsers().add(user);
-//		accountRepo.save(account);
-//		return userRepo.save(user);
-//	}
+	public User updateUserAndAccount(User user, Account account) {
+		user.getAccounts().add(account);
+		account.getUsers().add(user);
+		accountRepo.save(account);
+		return userRepo.save(user);
+	}
 
 	public void delete(Long userId) {
 		userRepo.deleteById(userId);

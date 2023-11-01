@@ -42,7 +42,7 @@ public class Account {
 	public void setTransactions(List<Transaction> transactions) {
 		this.transactions = transactions;
 	}
-	@ManyToMany(mappedBy = "accounts")
+	@ManyToMany(mappedBy = "accounts", cascade = CascadeType.MERGE)
 	public List<User> getUsers() {
 		return users;
 	}
