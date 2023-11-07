@@ -27,7 +27,6 @@ public class AccountController {
 	public String getAccount(@PathVariable Long userId, ModelMap model) {
 		User user = userService.findById(userId);
 		Account account = accountService.addAccount(user);
-
 		model.put("account", account);
 		return "account";
 	}
@@ -36,7 +35,6 @@ public class AccountController {
 	public String postAccount(@PathVariable Long userId, Account account) {
 		User user = userService.findById(userId);
 		Account savedAccount = accountService.saveAccount(account);
-
 		List<Account> accounts = user.getAccounts();
 		accounts.add(savedAccount);
 		user.setAccounts(accounts);
