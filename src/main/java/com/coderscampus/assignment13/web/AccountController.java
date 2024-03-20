@@ -39,7 +39,7 @@ public class AccountController {
 		accounts.add(savedAccount);
 		user.setAccounts(accounts);
 		userService.saveUser(user);
-		return "redirect:/users/" + userId + "/accounts";
+		return "redirect:/users/{userId}";
 	}
 
 	@GetMapping("/users/{userId}/accounts/{accountId}")
@@ -54,7 +54,7 @@ public class AccountController {
 		User user = userService.findById(userId);
 		 userService.saveUser(user);
 		 accountService.saveAccount(account);
-		return "redirect:/users/{userId}/accounts/{accountId}";
+		return "redirect:/users/{userId}";
 	}
 
 }

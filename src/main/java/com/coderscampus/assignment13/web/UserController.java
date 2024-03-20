@@ -50,9 +50,8 @@ public class UserController {
 		User user = userService.findById(userId);
 		Address address = addressService.findById(userId);
 		model.put("address", address);
-		model.put("users", Arrays.asList(user));
 		model.put("user", user);
-		return "users";
+		return "user";
 	}
 
 	@PostMapping("/users/{userId}")
