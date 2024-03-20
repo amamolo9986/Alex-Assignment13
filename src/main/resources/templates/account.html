@@ -15,7 +15,11 @@
             <input type="submit" value="Save Account" />
         </div>
     </form>
-    <hr/>
+    <form th:action="@{/users/{userId}/accounts/{accountId}/delete(userId=${user.userId}), 
+    (accountId=${account.accountId})}" method="post">
+        <input type="submit" value="Delete Account">
+    </form>
+    <hr />
     <div>
         <a href="/users">Back</a><br />
     </div>

@@ -16,7 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity // Class name = User, DB Table name = user
+@Entity 
 @Table(name = "users")
 public class User {
 	private Long userId;

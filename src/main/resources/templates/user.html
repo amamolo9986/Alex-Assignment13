@@ -9,15 +9,19 @@
     <h1>Welcome [[${user.name}]]</h1>
     <form action="" method="post">
         <div>
+            User ID: [[${user.userId}]]
+        </div><br/>
+        <div>
+            Full Name: <input type="text" th:field="${user.name}" />
+        </div>
+        <div>
             Username: <input type="text" th:field="${user.username}" />
         </div>
         <div>
             Password: <input type="text" th:field="${user.password}" />
         </div>
-        <div>
-            Full Name: <input type="text" th:field="${user.name}" />
-        </div>
         <hr />
+        
         <div>
             Address Line 1: <input type="text" th:field="${address.addressLine1}" />
         </div>
@@ -44,6 +48,7 @@
         <input type="submit" value="Delete User Account" />
     </form>
     <hr />
+
     <h3>Accounts</h3>
     <div th:each="account : ${user.accounts}">
         <a th:text="${account.accountName}" th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, 

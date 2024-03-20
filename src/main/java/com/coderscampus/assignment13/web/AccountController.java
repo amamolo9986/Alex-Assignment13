@@ -56,5 +56,11 @@ public class AccountController {
 		 accountService.saveAccount(account);
 		return "redirect:/users/{userId}";
 	}
+	
+	@PostMapping("/users/{userId}/accounts/{accountId}/delete")
+	public String deleteAccount(@PathVariable Long userId, @PathVariable Long accountId) {
+		accountService.deleteAccount(accountId);
+		return "redirect:/users/{userId}";
+	}
 
 }

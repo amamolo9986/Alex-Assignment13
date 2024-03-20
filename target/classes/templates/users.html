@@ -12,13 +12,12 @@
     </div><br/>
 
 	<div th:each="user : ${users}">
-		<span th:inline="text">
-			<a th:href="@{/users/{userId}(userId=${user.userId})}">[[${user.userId}]]</a>
+		First Name: <span th:inline="text">
+			<a th:href="@{/users/{userId}(userId=${user.userId})}">[[${user.name}]]</a>
 		</span><br />
-		<span th:text="${user.username}"></span><br />
-		<span th:text="${user.name}"></span><br />
-		<span th:text="${user.password}"></span>
-		<div th:each="account : ${user.accounts}">
+		Username: <span th:text="${user.username}"></span><br />
+		Password: <span th:text="${user.password}"></span><br />
+		Accounts: <div th:each="account : ${user.accounts}">
 			<a th:text="${account.accountName}" th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, 
 						 accountId=${account.accountId})}"></a>
 		</div>
