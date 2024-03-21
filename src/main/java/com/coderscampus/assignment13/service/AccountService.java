@@ -29,7 +29,7 @@ public class AccountService {
 	public Account addAccount(User user) {
 		Account account = new Account();
 		Integer accountNumber = user.getAccounts().size() + 1;
-		account.setAccountName("Account # " + accountNumber);
+		account.setAccountName("Bank Account " + accountNumber);
 		List<User> users = account.getUsers();
 		user.getAccounts().add(account);
 		users.add(user);
