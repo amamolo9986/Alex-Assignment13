@@ -61,6 +61,7 @@ public class UserController {
 		user.setAccounts(foundUser.getAccounts());
 		userService.saveUser(user);
 		userService.saveAddressToUser(user, address);
+		
 		return "redirect:/users/" + user.getUserId();
 	}
 

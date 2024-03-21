@@ -43,14 +43,16 @@ public class AccountController {
 	}
 
 	@GetMapping("/users/{userId}/accounts/{accountId}")
-	public String getOneAccount(ModelMap model, @PathVariable Long accountId) {
+	public String getOneAccount(ModelMap model, @PathVariable Long accountId, @PathVariable Long userId) {
+		User user = userService.findById(userId);
 		Account account = accountService.findById(accountId);
 		model.put("account", account);
+		model.put("user", user);
 		return "account";
 	}
 
 	@PostMapping("/users/{userId}/accounts/{accountId}")
-	public String saveAccount(@PathVariable Long userId, Account account) {
+	public String saveAccount(@PathVariable Long userId, @PathVariable Long accountId, Account account) {
 		User user = userService.findById(userId);
 		 userService.saveUser(user);
 		 accountService.saveAccount(account);
@@ -58,7 +60,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/users/{userId}/accounts/{accountId}/delete")
-	public String deleteAccount(@PathVariable Long userId, @PathVariable Long accountId) {
+	public String deleteAccount(@PathVariable Long accountId, @PathVariable Long userId) {
 		accountService.deleteAccount(accountId);
 		return "redirect:/users/{userId}";
 	}
