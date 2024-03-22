@@ -28,6 +28,7 @@ public class AccountController {
 		User user = userService.findById(userId);
 		Account account = accountService.addAccount(user);
 		model.put("account", account);
+		model.put("user", user);
 		return "account";
 	}
 
@@ -60,9 +61,17 @@ public class AccountController {
 	}
 	
 	@PostMapping("/users/{userId}/accounts/{accountId}/delete")
-	public String deleteAccount(@PathVariable Long accountId, @PathVariable Long userId) {
-		accountService.deleteAccount(accountId);
-		return "redirect:/users/{userId}";
-	}
+	public String deleteAccount(@PathVariable Long accountId) {
+	    Account account = accountService.findById(accountId);
 
+	    // 1. Remove account from all associated users
+	    for (User user : account.getUsers()) {
+	        user.getAccounts().remove(account); // Bidirectional relationship management
+	    }
+
+	    // 2. Delete the account (JPA will handle foreign key in join table)
+	    accountService.deleteAccount(account); 
+
+	    return "redirect:/users/{userId}";
+	}
 }

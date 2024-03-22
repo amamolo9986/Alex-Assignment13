@@ -38,8 +38,8 @@ public class AccountService {
 		return account;
 	}
 
-	public void deleteAccount(Long accountId) {
-		accountRepo.deleteById(accountId);
+	public void deleteAccount(Account account) {
+		accountRepo.delete(account);
 		
 	}
 
