@@ -3,9 +3,20 @@
 
 <head>
     <title>[[${account.accountName}]]</title>
+    <link rel="stylesheet" href="/css/account.css">
 </head>
 
 <body>
+
+    <div class="header">
+		<div class="title-box">
+			<div class="title">Fake Bank USA</div>
+		</div>
+		<div class="register">
+			<a class="user-account" th:href="@{/users/{userId}(userId=${user.userId})}">User Account</a>
+		</div>
+	</div>
+
     <h1>[[${account.accountName}]]</h1>
     <form action="" method="post">
         <div>
@@ -19,10 +30,6 @@
                     accountId=${account.accountId})}" method="post">
         <input type="submit" value="Delete Account">
     </form>
-    <hr />
-    <div>
-        <a th:href="@{/users/{userId}(userId=${user.userId})}">Back</a><br />
-    </div>
 
 </body>
 

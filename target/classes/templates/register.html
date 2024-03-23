@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-	<head>
-		<title>Create Account</title>
-	</head>
-	<body>
-		<h1>Create Your Account</h1>
-		
-		<form action="" method="post">
-			<div>
-				Full Name: <input type="text" th:field="${user.name}" />
-			</div>
-			<div>
-				Username: <input type="text" th:field="${user.username}" />
-			</div>
-			<div>
-				Password: <input type="password" th:field="${user.password}" />
-			</div>
-			<div>
-				<input type="submit" value="Create Account" />
-			</div>
-			<div>
-				<a href="/users">Back</a>
-			</div>
-		</form>
-	</body>
+
+<head>
+	<title>Create Account</title>
+	<link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+
+	<div class="header">
+		<div class="title-box">
+			<div class="title">Fake Bank USA</div>
+		</div>
+		<div class="">
+			<a class="back" href="/users">Back</a>
+		</div>
+	</div>
+
+	<h1>Create Your Account</h1>
+
+	<form action="" method="post">
+		<div>
+			Full Name: <input type="text" th:field="${user.name}" />
+		</div>
+		<div>
+			Username: <input type="text" th:field="${user.username}" />
+		</div>
+		<div>
+			Password: <input type="password" th:field="${user.password}" />
+		</div>
+		<div>
+			<input type="submit" value="Create Account" />
+		</div>
+
+	</form>
+</body>
+
 </html>

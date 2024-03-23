@@ -1,0 +1,29 @@
+body{
+    background-color: #ebebeb;
+    margin: 0;
+}
+.header{
+    height: 50px;
+    padding-top: .5em;
+	padding-bottom: .5em;
+	background-color: #14204b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.title-box{
+    margin-left: 50px;
+    padding: 30px;
+    border: 1px solid rgb(150, 42, 42);
+    background-color: rgb(150, 42, 42);
+}
+.title{
+    color: white;
+
+}
+.back{
+    margin-right: 50px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}

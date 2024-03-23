@@ -7,12 +7,16 @@
 </head>
 
 <body>
-	<div id="header">
-		<h1>Users List</h1>
-		<div>
-			<a href="/register">Register</a>
-		</div><br />
+
+	<div class="header">
+		<div class="title-box">
+			<div class="title">Fake Bank USA</div>
+		</div>
+		<div class="register">
+			<a class="register-link" href="/register">Register</a>
+		</div>
 	</div>
+
 	<div class="box">
 		<div th:each="user : ${users}">
 			<div class="user-info">
@@ -29,6 +33,7 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 
 </html>
