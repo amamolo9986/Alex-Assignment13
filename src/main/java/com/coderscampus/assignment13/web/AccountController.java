@@ -17,11 +17,14 @@ import com.coderscampus.assignment13.service.UserService;
 @Controller
 public class AccountController {
 
-	@Autowired
 	private AccountService accountService;
-	@Autowired
 	private UserService userService;
 
+	public AccountController(AccountService accountService, UserService userService) {
+		super();
+		this.accountService = accountService;
+		this.userService = userService;
+	}
 
 	@GetMapping("/users/{userId}/accounts")
 	public String getAccount(@PathVariable Long userId, ModelMap model) {
@@ -63,12 +66,10 @@ public class AccountController {
 	@PostMapping("/users/{userId}/accounts/{accountId}/delete")
 	public String deleteAccount(@PathVariable Long accountId) {
 	    Account account = accountService.findById(accountId);
-
 	    // 1. Remove account from all associated users
 	    for (User user : account.getUsers()) {
 	        user.getAccounts().remove(account); // Bidirectional relationship management
 	    }
-
 	    // 2. Delete the account (JPA will handle foreign key in join table)
 	    accountService.deleteAccount(account); 
 

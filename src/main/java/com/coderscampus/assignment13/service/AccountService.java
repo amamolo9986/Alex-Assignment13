@@ -13,8 +13,12 @@ import com.coderscampus.assignment13.repository.AccountRepository;
 @Service
 public class AccountService {
 
-	@Autowired
 	private AccountRepository accountRepo;
+
+	public AccountService(AccountRepository accountRepo) {
+		super();
+		this.accountRepo = accountRepo;
+	}
 
 	public Account findById(Long accountId) {
 		Optional<Account> accountOpt = accountRepo.findById(accountId);

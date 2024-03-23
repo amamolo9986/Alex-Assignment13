@@ -11,8 +11,13 @@ import com.coderscampus.assignment13.repository.AddressRepository;
 @Service
 public class AddressService {
 
-	@Autowired
 	private AddressRepository addressRepo;
+
+	public AddressService(AddressRepository addressRepo) {
+		super();
+		this.addressRepo = addressRepo;
+	}
+
 
 	public Address findById(Long userId) {
 		Optional<Address> addressOpt = addressRepo.findById(userId);

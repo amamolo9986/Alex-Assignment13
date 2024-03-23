@@ -15,12 +15,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "accounts")
 public class Account {
-	private Long accountId;
-	private String accountName;
-	private List<User> users = new ArrayList<>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long accountId;
+	@Column(length = 100)
+	private String accountName;
+	@ManyToMany(mappedBy = "accounts", 
+			    cascade = { CascadeType.MERGE, CascadeType.PERSIST })
+	private List<User> users = new ArrayList<>();
+
 	public Long getAccountId() {
 		return accountId;
 	}
@@ -29,7 +33,6 @@ public class Account {
 		this.accountId = accountId;
 	}
 
-	@Column(length = 100)
 	public String getAccountName() {
 		return accountName;
 	}
@@ -38,8 +41,6 @@ public class Account {
 		this.accountName = accountName;
 	}
 
-	@ManyToMany(mappedBy = "accounts", 
-				cascade = { CascadeType.MERGE, CascadeType.PERSIST})
 	public List<User> getUsers() {
 		return users;
 	}

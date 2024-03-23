@@ -3,27 +3,32 @@
 
 <head>
 	<title>Users</title>
+	<link rel="stylesheet" href="/css/users.css">
 </head>
 
 <body>
-	<h1>Users</h1>
-	<div>
-        <a href="/register">Register</a>
-    </div><br/>
-
-	<div th:each="user : ${users}">
-		<b>First Name:</b> <span th:inline="text">
-			<a th:href="@{/users/{userId}(userId=${user.userId})}">[[${user.name}]]</a>
-		</span><br />
-		<b>Username:</b> <span th:text="${user.username}"></span><br />
-		<b>Password:</b> <span th:text="${user.password}"></span><br />
-		<b>Accounts:</b> <div th:each="account : ${user.accounts}">
-			<span style="margin-left: 70px;" th:text="${account.accountName}"></span>
-		</div>
-		<hr />
+	<div id="header">
+		<h1>Users List</h1>
+		<div>
+			<a href="/register">Register</a>
+		</div><br />
 	</div>
-	<!-- The code above is the multi user view (/users endpoint with multiple users) -->
+	<div class="box">
+		<div th:each="user : ${users}">
+			<div class="user-info">
+				<b>Full Name:</b> <span th:inline="text">
+					<a th:href="@{/users/{userId}(userId=${user.userId})}">[[${user.name}]]</a>
+				</span><br />
+				<b>Username:</b> <span th:text="${user.username}"></span><br />
+				<b>Password:</b> <span th:text="${user.password}"></span><br />
+				<b>Accounts:</b>
+				<div th:each="account : ${user.accounts}">
+					<span style="margin-left: 70px;" th:text="${account.accountName}"></span>
+				</div>
 
-
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>

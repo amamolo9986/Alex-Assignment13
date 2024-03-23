@@ -16,10 +16,15 @@ import com.coderscampus.assignment13.service.UserService;
 
 @Controller
 public class UserController {
-	@Autowired
+	
 	private UserService userService;
-	@Autowired
 	private AddressService addressService;
+
+	public UserController(UserService userService, AddressService addressService) {
+		super();
+		this.userService = userService;
+		this.addressService = addressService;
+	}
 
 	@GetMapping("/register")
 	public String getCreateUser(ModelMap model) {
