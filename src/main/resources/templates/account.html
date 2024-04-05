@@ -9,13 +9,11 @@
 <body>
 
     <div class="header">
-		<div class="title-box">
-			<div class="title">Fake Bank USA</div>
-		</div>
-		<div class="register">
-			<a class="user-account" th:href="@{/users/{userId}(userId=${user.userId})}">User Account</a>
-		</div>
-	</div>
+        <div class="title-box">
+            <div class="title">Fake Bank USA</div>
+        </div>
+        <a class="user-account" th:href="@{/users/{userId}(userId=${user.userId})}">User Account</a>
+    </div>
 
     <h1>[[${account.accountName}]]</h1>
     <form action="" method="post">

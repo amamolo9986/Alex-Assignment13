@@ -12,28 +12,28 @@
 		<div class="title-box">
 			<div class="title">Fake Bank USA</div>
 		</div>
-		<div class="">
-			<a class="back" href="/users">Back</a>
-		</div>
+		<a class="back" href="/users">Back</a>
 	</div>
 
-	<h1>Create Your Account</h1>
-
-	<form action="" method="post">
-		<div>
-			Full Name: <input type="text" th:field="${user.name}" />
-		</div>
-		<div>
-			Username: <input type="text" th:field="${user.username}" />
-		</div>
-		<div>
-			Password: <input type="password" th:field="${user.password}" />
-		</div>
-		<div>
-			<input type="submit" value="Create Account" />
-		</div>
-
-	</form>
+	<div class="container">
+		<h1>Create Your Account</h1>
+		<form action="" method="post">
+			<div class="user-input">
+				<div>
+					<input type="text" th:field="${user.name}" placeholder="Enter Full Name *" />
+				</div>
+				<div>
+					<input type="text" th:field="${user.username}" placeholder="Enter Userame *" />
+				</div>
+				<div>
+					<input type="password" th:field="${user.password}" placeholder="Enter Password *" />
+				</div>
+				<div class="button">
+					<input type="submit" value="Create Account" />
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 
 </html>
