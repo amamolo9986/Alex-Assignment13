@@ -15,7 +15,7 @@
 		<a class="register-link" href="/register">Register</a>
 	</div>
 
-	<div class="box">
+	<div class="all-users">
 		<div th:each="user : ${users}">
 			<div class="user-info">
 				<b>Full Name:</b> <span th:inline="text">
@@ -23,9 +23,20 @@
 				</span><br />
 				<b>Username:</b> <span th:text="${user.username}"></span><br />
 				<b>Password:</b> <span th:text="${user.password}"></span><br />
+				<b>Address:</b> <br />
+				<div class="address">
+					<span th:text="${user.address.addressLine1}"></span><br />
+					<span th:if="${user.address.addressLine2 != null and user.address.addressLine2 != ''}">
+						<span th:text="${user.address.addressLine2}"></span><br />
+					</span>
+					<span th:text="${user.address.city}"></span><br />
+					<span th:text="${user.address.state}"></span><br />
+					<span th:text="${user.address.country}"></span><br />
+					<span th:text="${user.address.zipCode}"></span><br />
+				</div>
 				<b>Accounts:</b>
 				<div th:each="account : ${user.accounts}">
-					<span style="margin-left: 70px;" th:text="${account.accountName}"></span>
+					<span id="account" th:text="${account.accountName}"></span>
 				</div>
 
 			</div>
