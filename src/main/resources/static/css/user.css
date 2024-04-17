@@ -20,7 +20,7 @@ body{
 }
 .title{
     color: white;
-
+    
 }
 .back{
     margin-right: 50px;
@@ -31,4 +31,20 @@ body{
     background-color: rgb(150, 42, 42);
     border-radius: 15px;
     padding: 7px 15px;
+}
+hr{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+.user-text{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.address-text{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.account-text{
+    margin-left: 40px;
+    margin-right: 40px;
 }

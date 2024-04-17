@@ -23,6 +23,7 @@
 				</span><br />
 				<b>Username:</b> <span th:text="${user.username}"></span><br />
 				<b>Password:</b> <span th:text="${user.password}"></span><br />
+				<hr/>
 				<b>Address:</b> <br />
 				<div class="address">
 					<span th:text="${user.address.addressLine1}"></span><br />
@@ -34,6 +35,7 @@
 					<span th:text="${user.address.country}"></span><br />
 					<span th:text="${user.address.zipCode}"></span><br />
 				</div>
+				<hr/>
 				<b>Accounts:</b>
 				<div th:each="account : ${user.accounts}">
 					<span id="account" th:text="${account.accountName}"></span>
