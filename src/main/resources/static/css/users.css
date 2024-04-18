@@ -20,7 +20,6 @@ body{
 }
 .title{
     color: white;
-
 }
 .register-link{
     margin-right: 50px;
@@ -32,6 +31,9 @@ body{
     border-radius: 15px;
     padding: 7px 15px;
 }
+.name{
+    font-size: xx-large;
+}
 .all-users{
     display: grid;
     justify-content: center;
@@ -39,6 +41,19 @@ body{
     margin-top: 70px;
     margin-bottom: 80px;
 } 
+.user-info-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.link{
+    text-decoration: none;
+    margin-left: 330px;
+    color: rgb(150, 42, 42);
+}
+.link:hover{
+    text-decoration: underline;
+}
 .user-info {
     opacity: .95;
     width: 600px;

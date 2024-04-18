@@ -21,43 +21,43 @@
             <div>
                 User ID: [[${user.userId}]]
             </div><br />
-            <div>
+            <div class="full-name">
                 Full Name: <input type="text" th:field="${user.name}" />
             </div>
-            <div>
+            <div class="username">
                 Username: <input type="text" th:field="${user.username}" />
             </div>
             <div>
                 Password: <input type="text" th:field="${user.password}" />
             </div>
-    </div><br/>
-    <hr /><br/>
+    </div><br />
+    <hr /><br />
     <div class="address-text">
-        <div>
+        <div class="address1">
             Address Line 1: <input type="text" th:field="${address.addressLine1}" />
         </div>
-        <div>
+        <div class="address2">
             Address Line 2: <input type="text" th:field="${address.addressLine2}" />
         </div>
-        <div>
+        <div class="city">
             City: <input type="text" th:field="${address.city}" />
         </div>
-        <div>
+        <div class="state">
             State: <input type="text" th:field="${address.country}" />
         </div>
-        <div>
+        <div class="country">
             Country: <input type="text" th:field="${address.state}" />
         </div>
-        <div>
+        <div class="zip">
             Zip Code: <input type="text" th:field="${address.zipCode}" />
         </div>
-        <div>
+        <div class="update">
             <input type="submit" value="Update User Account" />
         </div>
         </form>
         <form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="post">
             <input type="submit" value="Delete User Account" />
-        </form><br/>
+        </form><br />
     </div>
     <hr />
     <div class="account-text">

@@ -18,12 +18,17 @@
 	<div class="all-users">
 		<div th:each="user : ${users}">
 			<div class="user-info">
-				<b>Full Name:</b> <span th:inline="text">
-					<a th:href="@{/users/{userId}(userId=${user.userId})}">[[${user.name}]]</a>
-				</span><br />
+				<div class="user-info-header">
+					<div class="name">
+						<span><b>[[${user.name}]]</b></span>
+					</div>
+					<span th:inline="text">
+						<a class="link" th:href="@{/users/{userId}(userId=${user.userId})}">Edit User</a>
+					</span><br />
+				</div><br/>
 				<b>Username:</b> <span th:text="${user.username}"></span><br />
 				<b>Password:</b> <span th:text="${user.password}"></span><br />
-				<hr/>
+				<hr />
 				<b>Address:</b> <br />
 				<div class="address">
 					<span th:text="${user.address.addressLine1}"></span><br />
@@ -35,7 +40,7 @@
 					<span th:text="${user.address.country}"></span><br />
 					<span th:text="${user.address.zipCode}"></span><br />
 				</div>
-				<hr/>
+				<hr />
 				<b>Accounts:</b>
 				<div th:each="account : ${user.accounts}">
 					<span id="account" th:text="${account.accountName}"></span>

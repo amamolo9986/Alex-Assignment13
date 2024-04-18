@@ -40,9 +40,36 @@ hr{
     margin-left: 40px;
     margin-right: 40px;
 }
+.full-name{
+    margin-bottom: 5px;
+}
+.username{
+    margin-bottom: 5px;
+}
 .address-text{
     margin-left: 40px;
     margin-right: 40px;
+}
+.address1{
+    margin-bottom: 5px;
+}
+.address2{
+    margin-bottom: 5px;
+}
+.city{
+    margin-bottom: 5px;
+}
+.state{
+    margin-bottom: 5px;
+}
+.country{
+    margin-bottom: 5px;
+}
+.zip{
+    margin-bottom: 5px;
+}
+.update{
+    margin-bottom: 5px;
 }
 .account-text{
     margin-left: 40px;
