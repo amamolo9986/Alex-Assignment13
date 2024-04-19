@@ -14,62 +14,87 @@
         </div>
         <a class="back" href="/users">Back</a>
     </div>
+    <h1>Welcome [[${user.name}]]</h1>
+    <div class="user-info-container">
+        <div class="user-text">
+            <form action="" method="post">
 
-    <div class="user-text">
-        <h1>Welcome [[${user.name}]]</h1>
-        <form action="" method="post">
-            <div>
-                User ID: [[${user.userId}]]
-            </div><br />
-            <div class="full-name">
-                Full Name: <input type="text" th:field="${user.name}" />
-            </div>
-            <div class="username">
-                Username: <input type="text" th:field="${user.username}" />
-            </div>
-            <div>
-                Password: <input type="text" th:field="${user.password}" />
-            </div>
-    </div><br />
-    <hr /><br />
-    <div class="address-text">
-        <div class="address1">
-            Address Line 1: <input type="text" th:field="${address.addressLine1}" />
-        </div>
-        <div class="address2">
-            Address Line 2: <input type="text" th:field="${address.addressLine2}" />
-        </div>
-        <div class="city">
-            City: <input type="text" th:field="${address.city}" />
-        </div>
-        <div class="state">
-            State: <input type="text" th:field="${address.country}" />
-        </div>
-        <div class="country">
-            Country: <input type="text" th:field="${address.state}" />
-        </div>
-        <div class="zip">
-            Zip Code: <input type="text" th:field="${address.zipCode}" />
-        </div>
-        <div class="update">
-            <input type="submit" value="Update User Account" />
-        </div>
-        </form>
-        <form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="post">
-            <input type="submit" value="Delete User Account" />
-        </form><br />
-    </div>
-    <hr />
-    <div class="account-text">
-        <h3>Accounts</h3>
-        <div th:each="account : ${user.accounts}">
-            <a th:text="${account.accountName}" th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, 
-                     accountId=${account.accountId})}"></a>
+                <div class="line1">
+                    <div>
+                        User ID: [[${user.userId}]]
+                    </div><br />
+                    <div class="full-name">
+                        Full Name: <br />
+                        <input style="width: 465px;" type="text" th:field="${user.name}" />
+                    </div>
+                </div>
+
+                <div class="line2">
+                    <div class="username">
+                        Username: <br />
+                        <input style="width: 220px; margin-right: 20px;" type="text" th:field="${user.username}" />
+                    </div>
+                    <div>
+                        Password: <br />
+                        <input style="width: 220px;" type="text" th:field="${user.password}" />
+                    </div>
+                </div>
+
         </div><br />
+        <hr /><br />
+        <div class="address-text">
+            <div class="line3">
+                <div class="address1">
+                    Address Line 1: <br>
+                    <input style="width: 465px;" type="text" th:field="${address.addressLine1}" />
+                </div>
+                <div class="address2">
+                    Address Line 2: <br />
+                    <input style="width: 465px;" type="text" th:field="${address.addressLine2}" />
+                </div>
+            </div>
+            <div class="line4">
+                <div class="city">
+                    City:<br />
+                    <input style="width: 240px; margin-right: 20px;" type="text" th:field="${address.city}" />
+                </div>
+                <div class="state">
+                    State: <br />
+                    <input style="width: 199px;" type="text" th:field="${address.country}" />
+                </div>
+            </div>
+            <div class="line5">
+                <div class="country">
+                    Country: <br />
+                    <input style="width: 240px; margin-right: 20px;" type="text" th:field="${address.state}" />
+                </div>
+                <div class="zip">
+                    Zip Code: <br />
+                    <input style="width: 199px;" type="text" th:field="${address.zipCode}" />
+                </div>
+            </div>
+            <div class="line6">
+                <div class="update">
+                    <input type="submit" value="Update User Account" />
+                </div>
+                </form>
+                <form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="post">
+                    <input type="submit" value="Delete User Account" />
+                </form><br />
+            </div>
+        </div>
+        <hr />
+        <div class="account-text">
+            <h3>Accounts</h3>
+            <div th:each="account : ${user.accounts}">
+                <a th:text="${account.accountName}" th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, 
+                     accountId=${account.accountId})}"></a>
+            </div><br />
 
-        <form th:action="@{/users/{userId}/accounts/(userId=${user.userId})}" method="get">
-            <input type="submit" value="Create New Bank Account" />
-        </form><br />
+            <form th:action="@{/users/{userId}/accounts/(userId=${user.userId})}" method="get">
+                <input type="submit" value="Create New Bank Account" />
+            </form><br />
+        </div>
     </div>
 </body>
 

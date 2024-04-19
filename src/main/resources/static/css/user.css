@@ -12,6 +12,9 @@ body{
     justify-content: space-between;
     align-items: center; 
 }
+h1{
+    margin-left: 20px;
+}
 .title-box{
     margin-left: 50px;
     padding: 30px;
@@ -32,23 +35,55 @@ body{
     border-radius: 15px;
     padding: 7px 15px;
 }
-hr{
-    margin-left: 60px;
-    margin-right: 60px;
+/* .user-info-container{
+    opacity: .95;
+    width: 600px;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 3px 0px rgba(116, 116, 116, 0.75);
+	border-radius: 4px;
+    padding: 10px; 
+    margin-top: 30px;
+} */
+.line1{
+    display: grid;
+    justify-content: center;
+    align-items: center; 
 }
-.user-text{
-    margin-left: 40px;
-    margin-right: 40px;
+.line2{
+    display: flex;
+    justify-content: center;
+    align-items: normal; 
+}
+.line3{
+    display: grid;
+    justify-content: center;
+    align-items: center; 
+}
+.line4{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.line5{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.line6{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 5px;
+}
+hr{
+    width: 500px;
+    justify-content: center;
 }
 .full-name{
     margin-bottom: 5px;
 }
 .username{
     margin-bottom: 5px;
-}
-.address-text{
-    margin-left: 40px;
-    margin-right: 40px;
 }
 .address1{
     margin-bottom: 5px;
@@ -70,8 +105,8 @@ hr{
 }
 .update{
     margin-bottom: 5px;
+    margin-right: 196px
 }
 .account-text{
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 5px;
 }
